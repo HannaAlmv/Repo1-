@@ -1,0 +1,264 @@
+Must have рівень:
+
+1. Яке твердження щодо діаграми переходу станів і таблиці з тест-кейсами є вірним?
+ 
+
+Тест-кейс	1	2	3	4	5
+Стан початку	S1 	S2 	S2
+	 S3 	S3
+
+Живлення	Power On	Power Off	RC On	RC off	Power Off
+Стан завершення	S2	S1	S3	S2	S1
+
+A.	Дані тест-кейси покривають валідні і невалідні переходи на діаграмі.
+B.	Дані тест-кейси показують всі можливі валідні переходи на діаграмі.
+C.	Дані тест-кейси покривають деякі валідні переходи на діаграмі.
+D.	Дані тест-кейси покривають пари переходів на діаграмі.
+
+
+
+
+
+
+
+
+
+
+
+2. Співробітникам компанії виплачують бонуси за умови, що вони пропрацювати більше ніж рік та виконали заздалегідь поставлені цілі. 
+
+Ці умови можна подати у вигляді таблиці рішень:
+
+
+Тест		Т1	Т2	Т3 	Т4
+Умова 1: 	Стаж більше року?	Так	Ні	Ні	Так
+Умова 2	Ціль поставлена?	Ні	Ні	Так	Так
+Умова 3	Ціль досягнута?	Ні	Ні	Так	Так
+Дія	Виплата бонуса	Ні	Ні	Ні	Так
+
+Який сценарій, що є ймовірним в реальному житті, пропущений в таблиці?
+A.	Умова 1 = ТАК, Умова 2 = НІ, Умова 3 = ТАК, Дія = НІ
+B.	Умова 1 = ТАК, Умова 2 = ТАК, Умова 3 = НІ, Дія = ТАК
+C.	Умова 1 = НІ, Умова 2 = НІ, Умова 3 = ТАК, Дія = НІ
+D.	Умова 1 = НІ, Умова 2 = ТАК, Умова 3 = НІ, Дія = НІ
+
+Середній рівень:
+
+1. Виконай завдання попереднього рівня.
+
+2. Склади діаграму станів і переходів для тестування відеогри:
+Після запуску гри ти опиняєшся в «Замку загадок», у кімнаті з двома коридорами — направо і наліво.
+Якщо піти направо — потрапляєш до дракона. Дракон загадує тобі загадку. Якщо відповідь правильна — виходиш із замку та виграєш. Якщо неправильна — дракон загадує ще одну загадку. Якщо ти вдруге відповідаєш неправильно — дракон тебе з'їдає і ти програєш.
+Якщо піти наліво — потрапиш до відьми. Відьма загадує загадку, якщо відповідь правильна — виходиш із замку і виграєш. Якщо відповідь неправильна — відьма переносить тебе до дракона.
+
+3. Скільки тест-кейсів, відповідно до складеної діаграми, буде достатньо, щоб протестувати цю гру?
+
+ 
+
+Для тестування гри достатньо 7 тест-кейсів:
+Тест-кейс 1:  s0-s1-s3-s6 ( відгадано загадку Дракона з першої спроби, успіх)
+Тест-кейс 2: s0-s1-s3-s4-s6 ( друга спроба, відгадано другу загадку Дракона, успіх)
+Тест-кейс 3:  so-s1-s3-s4-s7 ( дві загадки не вгадано, невдача)
+Тест-кейс 4: s0-s2-s5-s6 (відгадано загадку Відьми, успіх)
+Тест-кейс 5: s0-s2-s⁵-s1-s3-s6 (не вгадано загадку Відьми, вгадана загадка Дракона, успіх)
+Тест-кейс 6: s0-s2-s5-s1-a3-s4-s6 (не вгадано загадку Відьми, вгадана  друга загадка Дракона, успіх)
+Тест-кейс 7: s0-s2-s5-s1-a3-s4-s7 (не вгадано загадку Відьми, 2 загадки Дракона не вгадано,невдача)
+Програма максимум:
+1.	Виконай завдання двох попередніх рівнів.
+2.	Продовжуємо розвивати стартап для застосунку, який дозволяє обмінюватися фотографіями котиків.
+
+а. Напиши 5 use-кейсів для типової поведінки користувача твого застосунку. 
+б. Намалюй схему переходу станів на основі написаних користувацьких сценаріїв та склади таблицю рішень для одного з варіантів.
+
+Use Case #1
+Use case name	Login
+Use case Description	User authorization in the system to access application functions
+Actors	A user with a created profile, System
+Pre-conditions	-	User has a mobile app installed
+-	User has a valid username and password
+-	App is opened
+Post-conditions	-	The user is authorized and can use the application's functionality.
+Or
+-	 User sees an error message or block
+Main Scenarios	Serial No	Steps
+User	1	Enter login and password
+System	2	Validate  login and password
+System	3	Access the main application interface
+Extensions	1a	Invalid login
+
+The system displays the message: "Invalid login."
+	2b	Invalid password
+
+The system displays the message: "Invalid password."
+	3c	3 incorrect password attempts
+
+The system blocks authorization for 1 hour and displays the message: "Too many attempts. Access blocked for 1 hour."
+
+Use Case #2
+
+Use case name	Uploading a photo
+Use case Description	Uploading a photo to a profile 
+Actors	A user with a created profile, System
+Pre-conditions	-	Mobile application installed
+-	User is logged in
+-	Personal profile open
+Post-conditions	-	The photo is saved and available in the user's profile
+OR
+-	The system does not allow the image to be uploaded and informs about the reason
+Main Scenarios	Serial No	Steps
+User	1	User clicks the "Add Photo" button
+System	2	Selects an image from the gallery (or takes a new one)
+
+The system checks the format and size of the photo
+System	3	If the image is valid, the system uploads it to the profile
+Extensions	1a	Invalid photo format
+
+ The system displays the message: "Unavailable photo format. Upload image in JPG/PNG format."
+	2b	Invalid photo size (less than 50KB or more than 10MB)
+
+The system displays the message: "Photo size must be between 50KB and 10 MB"
+	2c	User changes his mind about uploading a photo after selecting
+
+The system cancels the action, the user returns to the profile without changes.
+	2d	Network error/connection drops when trying to upload a photo
+
+The system displays the message: "Connection error. Please try again later."
+
+
+Use Case #3
+
+Use case name	Friend request
+Use case Description	Sending a friend request 
+Actors	Authorized user, system
+Pre-conditions	-	User has successfully logged in
+-	Other user profiles are available in the database
+-	Friend search section is open
+Post-conditions	-	The request was successfully saved in the system, the user sees it in the list of sent and the recipient received a notification of the request.
+OR
+-	The request was not sent due to blocking, the user received a corresponding message
+Main Scenarios	Serial No	Steps
+User
+
+System	1	User clicks the “Add to Friends” button
+
+- The system displays the message: “Friendship request sent; system saves the friend request and sends a notification to the recipient user.
+User
+
+System	2	User adds a message to the request (optionally)
+
+The system displays the message: “Message sent successfully.”
+Extensions	1a	If the profile of the user sending the request is blocked:
+
+The message is displayed: “Your profile is blocked from other user’s”
+	2b	User is already a friend:
+
+The system displays "You are already friends", the button is missing/changed to "Open chat"
+	2с	Friend request already sent:
+
+System displays "Friend request already sent. Waiting for response"
+	2d	The sender has blocked the recipient:
+
+The system displays "You have blocked this user and cannot send a request"
+	2e	Network error/connection is lost when trying to make a friend request.
+
+The system displays the message: "Connection error. Please try again later."
+
+
+Use Case #4
+
+Use case name	Sending photo
+Use case Description	Sending photos in private messages
+Actors	Authorized user, system
+Pre-conditions	-	The user has successfully logged in
+-	A "chat with a friend" section is open
+Post-conditions	-	Photos sent successfully (in case of a valid scenario)
+-	Photos not sent — the user received an appropriate error message (unavailability, format, number or friendship status)
+Main Scenarios	Serial No	Steps
+User
+
+
+
+System	1	User clicks the add photo button in the chat.
+Selects a photo from the gallery ≤10 photos /takes a new photo.
+Confirms sending.
+
+The system checks the format, size, and number of photos. It downloads and sends them.
+The system displays the message: "Photos sent successfully."
+The photos appear in both users' chats.
+Extensions	1a	The user sends a photo of an invalid format or size
+
+The system displays the message: "The photo format or size is invalid."
+	2b	User tries to send more than 10 photos
+
+ System displays message: “Allowed number of photos is 10”
+	2с	User tries to send a photo to a chat with a blocked profile
+
+The system displays the message: "This profile is unavailable."
+	2d	No permissions to access gallery/camera
+
+The system asks for permissions or displays a message that no permissions are available
+	2e	Connection error during photo upload.
+
+The system displays the message: "Connection error. Please try again later."
+
+
+
+Use Case #5
+
+Use case name	Likes
+Use case Description	Adding likes to a photo
+Actors	Authorized user, system
+Pre-conditions	-	The user has successfully logged in
+-	The photo is available for viewing.
+Post-conditions	-	Photo liked — like successfully added
+-	Like removed (user repeated action)
+-	Photo not liked — action limited, user received a corresponding message
+Main Scenarios	Serial No	Steps
+User
+
+
+System	1	The user clicks the like button or double-taps the photo.
+
+The system registers the like; updates the like counter for the photo; visually changes the appearance of the like icon (turns red)
+Extensions	1a	The photo belongs to a user who is not a friend
+The system does not allow you to like, shows the message: "Photo is unavailable for interaction," or simply does not show the like button
+	1b	User clicks on an already liked button/like icon
+
+The system deletes the like, updates the counter, and visually changes the icon circle
+	2b	The photo belongs to a blocked user or a deleted profile
+
+The system does not show the photo / shows the message: "User is inactive" or "Photo is unavailable"
+	
+2c	Could not add/remove like due to network error.
+
+System displays "Error. Please try again."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Conditions/Actions 	1	2	3	4	5
+Valid photo size	T	F	T	T	T
+Valid photo format	T	T	F	T	T
+Internet connection	T	T	T	F	T
+User cancels upload	F	F	F	F	T
+"Photo uploaded" is displayed	+	-	-	-	-
+"Invalid size" is displayed	-	+	-	-	-
+"Invalid format" is displayed	-	-	+	-	-
+"Connection error" is displayed	-	-	-	+	-
+Photo successfully uploaded	+	-	-	-	-
+
+

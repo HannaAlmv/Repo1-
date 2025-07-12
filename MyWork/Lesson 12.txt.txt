@@ -1,0 +1,235 @@
+Beet Seed  — відпрацюй навички на базовому рівні.
+
+1. Створи високорівневий тест-кейс для перевірки функціоналу мобільного застосунка (наприклад, Дія або МоноБанк).
+2. Створи 3 низькорівневі тест-кейси на основі високорівневого.
+
+
+High-Level Test Case for UKRSIB online
+Test Case ID	HLTC_money_transfer	Test Case Description	Checking the ability of an authorized user to transfer funds from their own account.
+			
+Created By	Hanna Alymova	Reviewed By	QA Lead	Version	1.0
+							
+QA Tester’s Log						
+Tester's Name	Hanna Alymova	Date Tested	21/06/2025	Test Case (Pass/Fail/Not Executed)	Pass
+S #	Prerequisites:		S #	Test Data
+1	User is logged in			
+2	The user’s bank account is available.			
+3	There are funds in the bank account.			
+ High-level Step #	Step Details	Expected Results	Pass / Fail / Not executed / Suspended		
+					
+1	User opens his account in UKRSIB online app.	The user successfully transfers funds according to the selected transfer option.	Pass		
+2	User chooses a card for making a money transfer.				
+3	User chooses a money transfer operation.				
+4	The user chooses a method of transferring money (to a card, between their accounts, to an account at UKRSIBBANK, to an account at another bank)				
+5	The user makes a money transfer.				
+6	The system validates the transaction and transfers the funds.				
+Test Case 1
+Test Case ID	TC_money_tranfer_to_card	Test Case Description	Transfer funds from your own account to another valid card.
+Created By	Hanna Alymova	Reviewed By	QA Lead	Version	1.0
+QA Tester’s Log						
+Tester's Name	Hanna Alymova	Date Tested	21/06/2025	Test Case (Pass/Fail/Not Executed)	Pass
+S #	Prerequisites:		S #	Test Data
+1	User is logged in		1	Bank account name = Own money
+2	Program language - Ukrainian		2	Bank account number for transfer = 5100 4256 7856 2352
+       3 	The account must have funds to carry out the transaction.		3	Transfer amount = 50 hryvnias
+Test environment
+Android 15 AQ3A.240912.001
+OS version 2.0.2.0.VLLMIXM
+ Xiaomi 13 Lite
+Step #	Step Details	Expected Results	Pass / Fail / Not executed / Suspended		
+					
+1	Choose a bank account and open it	A section with bank account information has been opened.	Pass		
+2	Click on the "Перевести" button	A field for selecting transfer options opens.	Pass		
+3	Click on the option "На картку"	Fields for entering bank details are displayed.	Pass		
+4	In the "На картку" field, select "Ввести картку"	A field for entering the card number is displayed.	Pass		
+5	Enter a valid card number and press enter.	The system highlights the amount field.	Pass		
+6	Enter the transfer amount in the "Сума" field and click the "Перевести" button.	An informative message with a transaction confirmation code is displayed.	Pass		
+7	Click OK on the information window	The confirmation code entry field and information on the transfer conditions are displayed.	Pass		
+8	Enter the confirmation code and click on the "Далі" button.	A message about the successful transfer of funds is displayed.	Pass		
+Test Case 2
+Test Case ID	TC_money_transfer_to_account in UKRSIBBANK	Test Case Description	Transfer funds from your own account to an account at UKRSIBBANK
+Created By	Hanna Alymova	Reviewed By	QA Lead	Version	1.0
+QA Tester’s Log						
+Tester's Name	Hanna Alymova	Date Tested	21/06/2025	Test Case (Pass/Fail/Not Executed)	Pass
+S #	Prerequisites:		S #	Test Data
+1	User is logged in
+Program language - Ukrainian
+The account from which the funds will be transferred is selected and its section is opened.
+The account must have funds to carry out the transaction.	1	Bank account name = Own money
+2		2	IBAN = UA111122223333444455556666777
+      3         		3	Transfer amount = 50 hryvnias
+Test environment
+Android 15 AQ3A.240912.001
+OS version 2.0.2.0.VLLMIXM
+ Xiaomi 13 Lite	
+Step #	Step Details	Expected Results	Pass / Fail / Not executed / Suspended		
+					
+1	Click on the "Перевести" button	A field for selecting transfer options opens.	Pass		
+2	Click on the option "На рахунок в UKRSIBBANK"	Fields for entering bank details are displayed.	Pass		
+3	In the "Куди" field, select "Номер рахунку (IBAN)"	A field for entering the IBAN number is displayed.	Pass		
+4	Enter a valid IBAN and press enter.	The system highlights the payment destination field.	Pass		
+5	Enter the purpose of the payment and click on the "Сума переказу" field	The system highlights the transfer amount field.			
+6	Enter the transfer amount in the "Сума переказу" field and click the "Далі" button.	An informative message with a transaction confirmation code is displayed.	Pass		
+7	Click OK on the information window	The confirmation code entry field and information on the transfer conditions are displayed.	Pass		
+8	Enter the confirmation code and click on the "Далі" button.	A message about the successful transfer of funds is displayed.	Pass		
+Test Case 3
+Test Case ID	TC_money_transfer_to_another_bank	Test Case Description	Transferring funds to an account in another bank
+Created By	Hanna Alymova	Reviewed By	QA Lead	Version	1.0
+Tester's Name	Hanna Alymova	Date Tested	21/06/2025	Test Case (Pass/Fail/Not Executed)	Pass
+S #	Prerequisites:		S #	Test Data
+User is logged in
+Program language - Ukrainian
+The account from which the funds will be transferred is selected and its section is opened.
+
+        	1	Bank account name = Own money
+IBAN = UA111122223333444455556666777
+ІПН/ЄРДПОУ=112234567
+ПІБ/Назва отримувача = ПНЗ КИЇВ
+Transfer amount = 50 hryvnias
+	2	
+	3	
+	4	
+Test environment 
+Android 15 AQ3A.240912.001  OS version 2.0.2.0.VLLMIXM  Xiaomi 13 Lite
+Step #	Step Details	Expected Results	Pass / Fail / Not executed / Suspended		
+					
+1	Click on the "Перевести" button	A field for selecting transfer options opens.	Pass		
+2	Click on the option "На рахунок в іншому банку"	Fields for entering bank details are displayed.	Pass		
+3	In the "Куди" field, select "Номер рахунку (IBAN)"	A field for entering the IBAN number is displayed.	Pass		
+4	Enter a valid IBAN and press Enter.	The system validates the IBAN and fills in the fields "МФО" and the bank name	Pass		
+5	Click on the "ПІБ/Назва отримувача" field	The system highlights this field.			
+6	Type "ПІБ" recipient and press Enter	The system highlights the field ІПН/ЄРДПОУ	Pass		
+7	Enter "ІПН/ЄРДПОУ" recipient and press Enter	The system highlights the payment destination field.	Pass		
+8	Enter the purpose of the payment and click on the "Сума переказу" field	The system highlights the transfer amount field.	Pass		
+9	Enter the transfer amount in the "Сума переказу" field and click the "Далі" button.	An informative message with a transaction confirmation code is displayed.	Pass		
+10	Click OK on the information window	The confirmation code entry field and information on the transfer conditions are displayed.	Pass		
+11	Enter the confirmation code and click on the "Далі" button.	A message about the successful transfer of funds is displayed.	Pass		
+Test Case 4
+Test Case ID	TC_money_transfer_between_own_accounts	Test Case Description	Transfer funds between own accounts.
+Created By	Hanna Alymova	Reviewed By	QA Lead	Version	1.0
+QA Tester’s Log						
+Tester's Name	Hanna Alymova	Date Tested	21/06/2025	Test Case (Pass/Fail/Not Executed)	Pass
+S #	Prerequisites:		S #	Test Data
+1	User is logged in
+There are two active bank accounts.
+Program language - Ukrainian
+The account from which the funds will be transferred is selected, and its section is opened.	1	Bank account name = Own money
+2		2	Second bank account name = Salary 2025
+3		 3
+	Transfer amount = 50 hryvnias
+Test environment 
+Android 15 AQ3A.240912.001 
+OS version 2.0.2.0.VLLMIXM Xiaomi 13 Lite
+Step #	Step Details	Expected Results	Pass / Fail / Not executed / Suspended		
+					
+1	Click on the "Перевести" button	A field for selecting transfer options opens.	Pass		
+2	Click on the option "Між своїми рахунками"	Fields for entering bank details are displayed.	Pass		
+3	In the "Куди" field, select  the account "Salary 2025"	The "Звідки" field remains selected by the system automatically, and the system validates the "Куди" field	Pass		
+4	Enter the transfer amount in the "Сума переказу" field and click the "Далі" button.	Detailed information about the transfer of funds is displayed.	Pass		
+5	Click “Далі” to confirm the transfer	The system validates the transfer of funds, a message about a successful transfer is displayed.	Pass		
+6	Click “Рахунки”  in the main menu to check the balance.	The card was successfully credited, and changes in the funds counters on both accounts are displayed.	Pass		
+
+
+ Beet Sprout— детальніше заглибся в практику. 
+
+1. Проестимуй, скільки часу знадобиться для виконання тест-кейсів з попереднього завдання. 
+
+2. Для оцінки використай як мінімум 2 техніки (наприклад, WBS та трьохточкову естимацію).
+
+WBS + Bottom-Up техніка:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Припущення для оцінки:
+Тестування виконуватиме один QA інженер (я)
+Тестове середовище стабільне
+Є доступ до тестових даних.
+Немає блокуючих багів.
+Середня кількість багів: 1 на тест кейс.
+
+Оцінка часу:
+Test Design  - приблизно 1 година/кейс
+Test Execution - 30 хв/кейс
+Bug Reporting  - 20 хв/ баг
+Retesting - 20 хв/баг
+Всього: 2 год 10 хв на тест кейс
+
+Загальний час: 
+4 TC * 2.1 години = 8.4 години
+
+
+Three-Point Estimation:
+
+O - Оптимістична оцінка: 1,75 год/ кейс = 7 год/4 тест кейси
+P - Найбільш ймовірна оцінка: 2,25 год/кейс = 9 год/4 тест кейси
+П - Песимістична оцінка: 3,5 год/кейс = 14 год/ 4 тест кейси
+
+E =  ( O + P + П) /3
+
+E = (7 + 9 + 14) /3 = 10 годин 
+
+PERT:
+
+E = ( O + 4P + П) /3
+
+E = (7 + 9*4 + 14) /6 = 9.5 годин 
+
+Ймовірність того, що оцінка правильна:
+
+SD = ( П - О) /6
+
+SD = (14 - 7) /6 = 1,17 години
+
+ Для виконання завдання  потрібно від 8,33 до 10,67 годин.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mighty Beet — різнобічно опануй тематику уроку.
+
+
+
+
+1. Виконай завдання двох попередніх рівнів.
+
+2. Продовжуємо розвивати стартап для застосунка, який дозволяє обмінюватися фотографіями котиків. Команда тестувальників стартапу зростає разом із продуктом. Ви замислилися над створенням тестової стратегії.
+
+Спробуй створити документ, який би відповідав потребам вашої команди (темплейт додається). 
+
+*В ідеалі, заповнити темплейт англійською. Але якщо відчуваєш, що не впораєшся – заповнюй українською.
+
+
+Документ додано окремим файлом. https://docs.google.com/document/d/1Zwm3QlBKtcMHJEan79DeQHQPyrFOmoFk4XyynWY5dj0/edit?tab=t.0
